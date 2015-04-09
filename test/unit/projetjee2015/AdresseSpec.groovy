@@ -28,7 +28,7 @@ class AdresseSpec extends Specification {
     }
 
     @Unroll
-    void "test l'invalidite d'une adresse non valide"(int unNumero, String uneRue, int unCodePostal) {
+    void "test l'invalidite d'une adresse non valide"(int unNumero, String uneRue, int unCodePostal, String uneVille) {
 
         given: "un adresse initialise de maniere non valide"
         Adresse adresse = new Adresse(numero: unNumero, rue: uneRue, codePostal: unCodePostal)

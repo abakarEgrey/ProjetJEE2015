@@ -19,13 +19,13 @@ class DemandeVisiteSpec extends Specification {
                 " et un status non vide"
         DemandeVisite demandeVisite =
                 new DemandeVisite(code: unCode, dateDebutPeriode: uneDateDebut,
-                        dateFinPeriode: uneDateFin, nbPersonne: unNbPersonne, status: unStatus)
+                        dateFinPeriode: uneDateFin, nbPersonne: unNbPersonne, status: unStatus, musees: unMusee)
 
         expect: "le musée est valide"
         demandeVisite.validate() == true
 
         and: "elle concerne au moins un musee"
-        demandeVisite.musee.size() > 0
+        demandeVisite.musees.size() > 0
 
 
         where:
