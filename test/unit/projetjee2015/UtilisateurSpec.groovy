@@ -26,10 +26,10 @@ class UtilisateurSpec extends Specification {
         !utilisateur.musees
 
         where:
-        unNom | unPrenom | unEmail | unSexe | uneDateNaissance
-        "Dupont" | "Jeanne" | "jd@jd.com" | "F" | new Date(1972, 6, 17)
-        "Durand" | "Jacques" | "jd@jd.com" | "M" | new Date(1972, 6, 17)
-        "Durand" | "Jacques" | "jd@jd.com" | "M" | null
+        unNom    | unPrenom  | unEmail     | unSexe | uneDateNaissance
+        "Dupont" | "Jeanne"  | "jd@jd.com" | "F"    | new Date(1972, 6, 17)
+        "Durand" | "Jacques" | "jd@jd.com" | "M"    | new Date(1972, 6, 17)
+        "Durand" | "Jacques" | "jd@jd.com" | "M"    | null
 
     }
 
@@ -43,13 +43,13 @@ class UtilisateurSpec extends Specification {
         utilisateur.validate() == false
 
         where:
-        unNom | unPrenom | unEmail | unSexe
-        null | "Jeanne" | "jd@jd.com" | "F"
-        '' | "Jeanne" | "jd@jd.com" | "F"
-        "Dupont" | null | "jd@jd.com" | "F"
-        "Durand" | "" | "jd@jd.com" | "M"
-        "Durand" | "Jacques" | "jdjd.com" | "M"
-        "Durand" | "Jacques" | null | "M"
+        unNom    | unPrenom  | unEmail     | unSexe
+        null     | "Jeanne"  | "jd@jd.com" | "F"
+        ''       | "Jeanne"  | "jd@jd.com" | "F"
+        "Dupont" | null      | "jd@jd.com" | "F"
+        "Durand" | ""        | "jd@jd.com" | "M"
+        "Durand" | "Jacques" | "jdjd.com"  | "M"
+        "Durand" | "Jacques" | null        | "M"
         "Durand" | "Jacques" | "jd@jd.com" | "Z"
         "Durand" | "Jacques" | "jd@jd.com" | null
 
