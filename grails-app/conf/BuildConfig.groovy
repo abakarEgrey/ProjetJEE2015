@@ -53,6 +53,7 @@ grails.project.dependency.resolution = {
         test "org.grails:grails-datastore-test-support:1.0-grails-2.4"
         compile "cglib:cglib:2.2"
 
+
     }
 
     plugins {
@@ -61,7 +62,7 @@ grails.project.dependency.resolution = {
 
         // plugins for the compile step
         compile ":scaffolding:2.1.2"
-        compile ':cache:1.1.8'
+        compile ':cache:1.1.7'
         compile ":asset-pipeline:1.8.11"
         compile ":code-coverage:2.0.3-3"
 
