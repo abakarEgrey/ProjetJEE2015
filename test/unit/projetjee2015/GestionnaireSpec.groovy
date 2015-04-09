@@ -25,13 +25,12 @@ class GestionnaireSpec extends Specification {
 
         where:
         unNom    | _
-        null     | _
         "un nom" | _
 
     }
 
     @Unroll
-    void "test l'invalidite d'une gestionnaire non valide"(String unNom, Musee unMusee) {
+    void "test l'invalidite d'une gestionnaire non valide"(String unNom, def _) {
 
         given: "une gestionnaire initialise avec un nom  vide ou sans musee"
         Gestionnaire gestionnaire = new Gestionnaire(nom: "")
@@ -40,10 +39,10 @@ class GestionnaireSpec extends Specification {
         gestionnaire.validate() == false
 
         where:
-        unNom      | unMusee
-        null       | Mock(Musee)
-        ""         | Mock(Musee)
-        "un titre" | null
+        unNom      | _
+        null       | _
+        ""         | _
+        "un titre" | _
 
     }
 

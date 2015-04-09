@@ -28,10 +28,10 @@ class AdresseSpec extends Specification {
     }
 
     @Unroll
-    void "test l'invalidite d'une adresse non valide"(int unNumero, String uneRue, int unCodePostal) {
+    void "test l'invalidite d'une adresse non valide"(int unNumero, String uneRue, int unCodePostal, String uneVille) {
 
         given: "un adresse initialise de maniere non valide"
-        Adresse adresse = new Adresse(numero: unNumero, rue: uneRue, codePostal: unCodePostal)
+        Adresse adresse = new Adresse(numero: unNumero, rue: uneRue, codePostal: unCodePostal, ville: uneVille)
 
         expect: "l'adresse est invalide"
         adresse.validate() == false
@@ -42,8 +42,6 @@ class AdresseSpec extends Specification {
         127      | ""                  | 31000        | "Toulouse"
         0        | "Rue frois verdier" | -31200       | "Toulouse"
         118      | "Rue frois verdier" | -31200       | ""
-        118      | "Rue frois verdier" | 31200        | "Toulouse"
-
 
     }
 }
