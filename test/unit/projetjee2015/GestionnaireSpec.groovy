@@ -17,7 +17,7 @@ class GestionnaireSpec extends Specification {
         given: "une gestionnaire initialise avec un nom non vide"
         Gestionnaire gestionnaire = new Gestionnaire(nom: unNom)
 
-        expect: "l'gestionnaire est valide"
+        expect: "le gestionnaire est valide"
         gestionnaire.validate() == true
 
         and: "il n'est proprietaire d'aucune musee"
