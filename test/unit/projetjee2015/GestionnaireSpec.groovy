@@ -24,8 +24,8 @@ class GestionnaireSpec extends Specification {
         !gestionnaire.musees
 
         where:
-        unNom | _
-        null | _
+        unNom    | _
+        null     | _
         "un nom" | _
 
     }
@@ -40,9 +40,9 @@ class GestionnaireSpec extends Specification {
         gestionnaire.validate() == false
 
         where:
-        unNom | unMusee
-        null | Mock(Musee)
-        "" | Mock(Musee)
+        unNom      | unMusee
+        null       | Mock(Musee)
+        ""         | Mock(Musee)
         "un titre" | null
 
     }
