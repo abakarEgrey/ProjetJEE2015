@@ -16,6 +16,5 @@ class Musee {
         accesMetro(blank: false, nullable: false)
         accesBus(blank: false, nullable: false)
     }
-
     static hasMany = [demandesVisites: DemandeVisite]
 }

@@ -23,6 +23,71 @@
 			</g:if>
 			<ol class="property-list musee">
 			
+				<g:if test="${museeInstance?.nom}">
+				<li class="fieldcontain">
+					<span id="nom-label" class="property-label"><g:message code="musee.nom.label" default="Nom" /></span>
+					
+						<span class="property-value" aria-labelledby="nom-label"><g:fieldValue bean="${museeInstance}" field="nom"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${museeInstance?.horairesOuverture}">
+				<li class="fieldcontain">
+					<span id="horairesOuverture-label" class="property-label"><g:message code="musee.horairesOuverture.label" default="Horaires Ouverture" /></span>
+					
+						<span class="property-value" aria-labelledby="horairesOuverture-label"><g:fieldValue bean="${museeInstance}" field="horairesOuverture"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${museeInstance?.telephone}">
+				<li class="fieldcontain">
+					<span id="telephone-label" class="property-label"><g:message code="musee.telephone.label" default="Telephone" /></span>
+					
+						<span class="property-value" aria-labelledby="telephone-label"><g:fieldValue bean="${museeInstance}" field="telephone"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${museeInstance?.accesMetro}">
+				<li class="fieldcontain">
+					<span id="accesMetro-label" class="property-label"><g:message code="musee.accesMetro.label" default="Acces Metro" /></span>
+					
+						<span class="property-value" aria-labelledby="accesMetro-label"><g:fieldValue bean="${museeInstance}" field="accesMetro"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${museeInstance?.accesBus}">
+				<li class="fieldcontain">
+					<span id="accesBus-label" class="property-label"><g:message code="musee.accesBus.label" default="Acces Bus" /></span>
+					
+						<span class="property-value" aria-labelledby="accesBus-label"><g:fieldValue bean="${museeInstance}" field="accesBus"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${museeInstance?.adresse}">
+				<li class="fieldcontain">
+					<span id="adresse-label" class="property-label"><g:message code="musee.adresse.label" default="Adresse" /></span>
+					
+						<span class="property-value" aria-labelledby="adresse-label"><g:link controller="adresse" action="show" id="${museeInstance?.adresse?.id}">${museeInstance?.adresse?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${museeInstance?.demandesVisites}">
+				<li class="fieldcontain">
+					<span id="demandesVisites-label" class="property-label"><g:message code="musee.demandesVisites.label" default="Demandes Visites" /></span>
+					
+						<g:each in="${museeInstance.demandesVisites}" var="d">
+						<span class="property-value" aria-labelledby="demandesVisites-label"><g:link controller="demandeVisite" action="show" id="${d.id}">${d?.encodeAsHTML()}</g:link></span>
+						</g:each>
+					
+				</li>
+				</g:if>
+			
 			</ol>
 			<g:form url="[resource:museeInstance, action:'delete']" method="DELETE">
 				<fieldset class="buttons">
