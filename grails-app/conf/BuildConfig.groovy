@@ -52,8 +52,6 @@ grails.project.dependency.resolution = {
         // runtime 'org.postgresql:postgresql:9.3-1101-jdbc41'
         test "org.grails:grails-datastore-test-support:1.0-grails-2.4"
         compile "cglib:cglib:2.2"
-
-
     }
 
     plugins {
@@ -66,7 +64,6 @@ grails.project.dependency.resolution = {
         compile ":asset-pipeline:1.8.11"
         compile ":code-coverage:2.0.3-3"
         compile ":csv:0.3.1"
-
 
         // plugins needed at runtime but not for compilation
         runtime ":hibernate4:4.3.5.4" // or ":hibernate:3.6.10.16"

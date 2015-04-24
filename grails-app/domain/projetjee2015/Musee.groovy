@@ -18,6 +18,5 @@ class Musee {
     }
 
 
-
     static hasMany = [demandesVisites: DemandeVisite]
 }

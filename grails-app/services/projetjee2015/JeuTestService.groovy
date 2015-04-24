@@ -7,26 +7,30 @@ class JeuTestService {
 
     def createMusee() {
         //Read the CSV file data excluding the header
-        /*
+        Adresse uneAdresse
+        Musee unMusee
         File filecsv = new File("grails-app/assets/Musee.csv")
-        new File("iso3166Countries.csv").eachCsvLine { tokens ->
-            //parse the csv columns
-            def nom= tokens[0].trim()
-            def horaireOuvertures= tokens[2].trim()
-            def telephone = tokens[4].trim()
-            def accesMetro = tokens[5].trim()
-            def accesBus = tokens[6].trim()
-        }
+        filecsv.eachLine(2) { tokens ->
+            tokens.splitEachLine(";") { line ->
+                def unNom = line[0].trim()
+                def uneHoraireOuvertures = line[2].trim()
+                def unTelephone = line[4].trim()
+                def unAccesMetro = line[5].trim()
+                def unAccesBus = line[6].trim()
+                def unNumero = line[7].trim()
+                def uneRue = line[8].trim()
+                def unCodePostal = line[9].trim()
+                def uneVille = line[10].trim()
+                uneAdresse = new Adresse(numero: unNumero, rue: uneRue,
+                        codePostal: unCodePostal, ville: uneVille)
+                uneAdresse.save(flush: true)
 
-            //assign the csv column values to domain object
-            Musee musee = new Musee() // this is your domain/table that you used to insert csv data
-
-            if(!musee.save(validate: true)){
-                musee.errors.each {
-                    log.debug(it)
-                }
+                unMusee = new Musee(nom: unNom, horairesOuverture: uneHoraireOuvertures,
+                        telephone: unTelephone, accesMetro: unAccesMetro,
+                        accesBus: unAccesBus, adresse: uneAdresse.getId())
+                unMusee.save(flush: true)
             }
-            */
 
+        }
     }
 }
