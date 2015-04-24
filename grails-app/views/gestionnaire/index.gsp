@@ -33,7 +33,7 @@
                         <label for="codePostal">
                             Code Postal:
                         </label>
-                        <g:select name="codePostal" from="${projetjee2015.Adresse.list().codePostal}"/>
+                        <g:select name="codePostal" from="${projetjee2015.Adresse.list().codePostal.unique()}"/>
                     </div>
                     <div class="fieldcontain">
                         <label for="rue">
