@@ -9,6 +9,8 @@ class JeuTestService {
         //Read the CSV file data excluding the header
         Adresse uneAdresse
         Musee unMusee
+        Gestionnaire theGestionnaire = new Gestionnaire(nom: "Gestionnaire")
+        theGestionnaire.save()
         File filecsv = new File("grails-app/assets/Musee.csv")
         filecsv.eachLine(1) { tokens ->
             tokens.splitEachLine(";") { line ->
@@ -27,7 +29,8 @@ class JeuTestService {
 
                 unMusee = new Musee(nom: unNom, horairesOuverture: uneHoraireOuvertures,
                         telephone: unTelephone, accesMetro: unAccesMetro,
-                        accesBus: unAccesBus, adresse: uneAdresse.getId())
+                        accesBus: unAccesBus, adresse: uneAdresse.getId(),
+                        gestionnaire: theGestionnaire)
                 unMusee.save(flush: true)
             }
 

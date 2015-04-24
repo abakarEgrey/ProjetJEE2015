@@ -14,6 +14,7 @@
 <head>
 </head>
 <body>
+
 <g:if test="${!projetjee2015.Utilisateur.get(1).musees.isEmpty()}">
     <g:include view="utilisateur/favorit.gsp"></g:include>
 </g:if>
@@ -47,13 +48,18 @@
         </fieldset>
     </g:form>
 
-    <table>
+    <table style="font-size: 0.7em">
         <g:each in="${museeInstanceList}" status="i" var="museeInstance">
             <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 
-                <td><g:link action="show"
-                            id="${museeInstance.id}">${fieldValue(bean: museeInstance, field: "nom")}</g:link></td>
+                <td>${fieldValue(bean: museeInstance, field: "nom")}</td>
+                <td width="10%">${fieldValue(bean: museeInstance, field: "telephone")}</td>
                 <td>${fieldValue(bean: museeInstance, field: "adresse")}</td>
+                <td>${fieldValue(bean: museeInstance, field: "accesMetro")}</td>
+                <td>${fieldValue(bean: museeInstance, field: "accesBus")}</td>
+                <td>${fieldValue(bean: museeInstance, field: "horairesOuverture")}</td>
+                <td>${fieldValue(bean: museeInstance, field: "gestionnaire")}</td>
+
                 <td><g:link action="addFav" id="${museeInstance.id}" params="[nom: nomSearch,
                                                                               codePostal: codePostalSearch,
                                                                               rue: rueSearch ]">
@@ -67,7 +73,7 @@
     </table>
 
     <div class="pagination">
-        <g:paginate total="${museeInstanceCount ?: 5}"/>
+        <g:paginate total="${museeInstanceCount ?: 0}"/>
     </div>
 </div>
 </body>

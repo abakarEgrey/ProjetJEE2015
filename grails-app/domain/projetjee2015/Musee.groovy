@@ -7,6 +7,7 @@ class Musee {
     String telephone
     String accesMetro
     String accesBus
+    Gestionnaire gestionnaire
     Adresse adresse
 
     static constraints = {
