@@ -7,6 +7,7 @@ class Musee {
     String telephone
     String accesMetro
     String accesBus
+    Adresse adresse
 
     static constraints = {
         nom(blank: false, nullable: false)
@@ -15,8 +16,6 @@ class Musee {
         accesMetro(blank: false, nullable: false)
         accesBus(blank: false, nullable: false)
     }
-
-    static hasOne = [adresse: Adresse]
 
     static hasMany = [demandesVisites: DemandeVisite]
 }
