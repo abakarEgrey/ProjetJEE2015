@@ -7,25 +7,22 @@ class JeuTestService {
 
     def createMusee() {
         //Read the CSV file data excluding the header
+        /*
         File filecsv = new File("grails-app/assets/Musee.csv")
-        filecsv.inputStream.toCsvReader(['skipLines':1]).eachLine { tokens ->
+        new File("iso3166Countries.csv").eachCsvLine { tokens ->
             //parse the csv columns
-            /*
             def nom= tokens[0].trim()
-            def class= tokens[1].trim()
-            def age = tokens[2].trim()
-            def phone = tokens[3].trim()
-            */
+            def horaireOuvertures= tokens[2].trim()
+            def telephone = tokens[4].trim()
+            def accesMetro = tokens[5].trim()
+            def accesBus = tokens[6].trim()
         }
 
             //assign the csv column values to domain object
-            /*
-            City city = new City() // this is your domain/table that you used to insert csv data
-            city.name = name
-            city.class = class
-            city.age = age
-            if(!city.save(validate: true)){
-                city.errors.each {
+            Musee musee = new Musee() // this is your domain/table that you used to insert csv data
+
+            if(!musee.save(validate: true)){
+                musee.errors.each {
                     log.debug(it)
                 }
             }
