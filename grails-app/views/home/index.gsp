@@ -9,8 +9,8 @@
 <html>
 <head>
     <meta name="layout" content="main">
-    <g:set var="entityName" value="${message(code: 'home.label', default: 'Home')}" />
-    <title><g:message code="default.list.label" args="[entityName]" /></title>
+    <g:set var="entityName" value="${message(code: 'home.label', default: 'Home')}"/>
+    <title><g:message code="default.list.label" args="[entityName]"/></title>
 <head>
 </head>
 
@@ -46,17 +46,26 @@
     </g:form>
 
     <table>
-    <g:each in="${museeInstanceList}" status="i" var="museeInstance">
-        <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
+        <g:each in="${museeInstanceList}" status="i" var="museeInstance">
+            <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 
-            <td><g:link action="show" id="${museeInstance.id}">${fieldValue(bean: museeInstance, field: "nom")}</g:link></td>
-            <td>${fieldValue(bean: museeInstance, field: "adresse")}</td>
+                <td><g:link action="show"
+                            id="${museeInstance.id}">${fieldValue(bean: museeInstance, field: "nom")}</g:link></td>
+                <td>${fieldValue(bean: museeInstance, field: "adresse")}</td>
+                <td><g:link action="addFav" id="${museeInstance.id}" params="[nom: nomSearch,
+                                                                              codePostal: codePostalSearch,
+                                                                              rue: rueSearch ]">
+                    <input type="button" value="Ajouter à ma liste de musées" class="button"
+                           ${projetjee2015.Utilisateur.get(1).musees.contains(museeInstance)?'disabled':''}/>
+                </g:link>
+                </td>
 
-        </tr>
-    </g:each>
+            </tr>
+        </g:each>
     </table>
+
     <div class="pagination">
-        <g:paginate total="${museeInstanceCount ?: 5}" />
+        <g:paginate total="${museeInstanceCount ?: 5}"/>
     </div>
 </div>
 </body>

@@ -10,7 +10,7 @@ class JeuTestService {
         Adresse uneAdresse
         Musee unMusee
         File filecsv = new File("grails-app/assets/Musee.csv")
-        filecsv.eachLine(2) { tokens ->
+        filecsv.eachLine(1) { tokens ->
             tokens.splitEachLine(";") { line ->
                 def unNom = line[0].trim()
                 def uneHoraireOuvertures = line[2].trim()
@@ -32,5 +32,14 @@ class JeuTestService {
             }
 
         }
+    }
+
+    def createUser() {
+        Utilisateur utilisateur = new Utilisateur(nom: "LeGros",
+                prenom: "Roger",
+                email: "legrosroger@roberto.com",
+                sexe: "M",
+                dateNaissance: new Date(1980, 01, 01))
+        utilisateur.save()
     }
 }
