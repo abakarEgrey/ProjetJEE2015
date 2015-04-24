@@ -8,7 +8,9 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
-    <title></title>
+    <meta name="layout" content="main">
+    <g:set var="entityName" value="${message(code: 'home.label', default: 'Home')}" />
+    <title><g:message code="default.list.label" args="[entityName]" /></title>
 <head>
 </head>
 
@@ -43,6 +45,7 @@
         </fieldset>
     </g:form>
 
+    <table>
     <g:each in="${museeInstanceList}" status="i" var="museeInstance">
         <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 
@@ -51,6 +54,10 @@
 
         </tr>
     </g:each>
+    </table>
+    <div class="pagination">
+        <g:paginate total="${museeInstanceCount ?: 5}" />
+    </div>
 </div>
 </body>
 </html>
