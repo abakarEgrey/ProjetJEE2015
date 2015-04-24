@@ -49,11 +49,6 @@ class GestionnaireController {
         }
     }
 
-    def doSearchMusee() {
-        def museeList = gestionnaireService.searchMusee(params.nom, params.codePostal, params.rue)
-        //render(view: 'index', model: [inscriptionInstanceList: museeList, inscriptionInstanceCount: museeList.size()])
-    }
-
     def edit(Gestionnaire gestionnaireInstance) {
         respond gestionnaireInstance
     }
