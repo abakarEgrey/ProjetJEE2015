@@ -15,6 +15,7 @@ class GestionnaireController {
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond Gestionnaire.list(params), model:[gestionnaireInstanceCount: Gestionnaire.count()]
+        //System.out.println(params.nom)
     }
 
     def show(Gestionnaire gestionnaireInstance) {
@@ -50,7 +51,7 @@ class GestionnaireController {
 
     def doSearchMusee() {
         def museeList = gestionnaireService.searchMusee(params.nom, params.codePostal, params.rue)
-        render(view: 'index', model: [inscriptionInstanceList: museeList, inscriptionInstanceCount: museeList.size()])
+        //render(view: 'index', model: [inscriptionInstanceList: museeList, inscriptionInstanceCount: museeList.size()])
     }
 
     def edit(Gestionnaire gestionnaireInstance) {

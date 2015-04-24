@@ -1,5 +1,5 @@
 
-<%@ page import="projetjee2015.Gestionnaire" %>
+<%@ page import="projetjee2015.Adresse; projetjee2015.Gestionnaire" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -33,7 +33,7 @@
                         <label for="codePostal">
                             Code Postal:
                         </label>
-                        <g:textField name="codePostal"/>
+                        <g:select name="codePostal" from="${projetjee2015.Adresse.list().codePostal}"/>
                     </div>
                     <div class="fieldcontain">
                         <label for="rue">

@@ -67,7 +67,6 @@ grails.project.dependency.resolution = {
         compile ":code-coverage:2.0.3-3"
         compile ":csv:0.3.1"
 
-
         // plugins needed at runtime but not for compilation
         runtime ":hibernate4:4.3.5.4" // or ":hibernate:3.6.10.16"
         runtime ":database-migration:1.4.0"
