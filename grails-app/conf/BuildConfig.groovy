@@ -65,6 +65,7 @@ grails.project.dependency.resolution = {
         compile ':cache:1.1.7'
         compile ":asset-pipeline:1.8.11"
         compile ":code-coverage:2.0.3-3"
+        compile ":csv:0.3.1"
 
 
         // plugins needed at runtime but not for compilation
