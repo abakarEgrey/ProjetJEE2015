@@ -13,28 +13,30 @@
     <title><g:message code="default.list.label" args="[entityName]"/></title>
 <head>
 </head>
-
 <body>
-<div id="list-home" class="content scaffold-list" role="main">
+<g:if test="${!projetjee2015.Utilisateur.get(1).musees.isEmpty()}">
+    <g:include view="utilisateur/favorit.gsp"></g:include>
+</g:if>
+<div>
     <g:form>
         <fieldset class="form">
             <div class="fieldcontain">
                 <label for="nom">
-                    Le nom contient contient :
+                    Le nom contient
                 </label>
                 <g:textField name="nom"/>
             </div>
 
             <div class="fieldcontain">
                 <label for="codePostal">
-                    Code Postal:
+                    Code Postal
                 </label>
                 <g:select name="codePostal" from="${projetjee2015.Adresse.list().codePostal.unique()}"/>
             </div>
 
             <div class="fieldcontain">
                 <label for="rue">
-                    La rue contient :
+                    La rue contient
                 </label>
                 <g:textField name="rue"/>
             </div>

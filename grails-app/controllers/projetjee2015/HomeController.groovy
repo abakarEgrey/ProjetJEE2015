@@ -25,7 +25,10 @@ class HomeController {
         System.out.println(Utilisateur.get(1).nom + " " + Musee.get(params.id).nom);
         utilisateurService.addMuseeToFavorite(Utilisateur.get(1),Musee.get(params.id))
         doSearchMusee()
-        //render(view: "index", model: [museeInstanceList: params.museeList, museeInstanceCount: params.museeList.size()]);
+    }
 
+    def removeFav() {
+        utilisateurService.removeMuseeFavorite(Utilisateur.get(1),Musee.get(params.id))
+        doSearchMusee()
     }
 }
