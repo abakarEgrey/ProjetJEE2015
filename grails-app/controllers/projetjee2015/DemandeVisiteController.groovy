@@ -8,6 +8,9 @@ import static org.springframework.http.HttpStatus.*
 @Transactional(readOnly = true)
 class DemandeVisiteController {
 
+    UtilisateurService utilisateurService
+    DemandeVisiteService demandeVisiteService
+
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max) {
@@ -33,13 +36,7 @@ class DemandeVisiteController {
             return
         }
 
-        int randomStringLength = 10
-        String charset = (('a'..'z') + ('A'..'Z') + ('0'..'9')).join()
-        String randomString = RandomStringUtils.random(randomStringLength, charset.toCharArray())
-
-        demandeVisiteInstance.code = randomString
-        demandeVisiteInstance.status = "En cours de traitement"
-        demandeVisiteInstance.validate()
+        demandeVisiteInstance = demandeVisiteService.init(demandeVisiteInstance)
 
         if (demandeVisiteInstance.hasErrors()) {
             demandeVisiteInstance.code = null
@@ -47,8 +44,8 @@ class DemandeVisiteController {
             return
         }
 
-        Utilisateur.get(1).addToDemandeDeVisites(demandeVisiteInstance)
-        Utilisateur.get(1).save(flush: true)
+        utilisateurService.addDemandeVisite(Utilisateur.get(1), demandeVisiteInstance)
+
         demandeVisiteInstance.save flush: true
         respond demandeVisiteInstance, view: 'formDemande'
     }

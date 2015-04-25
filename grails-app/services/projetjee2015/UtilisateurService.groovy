@@ -10,14 +10,17 @@ class UtilisateurService {
     }
 
     def addMuseeToFavorite(Utilisateur utilisateur, Musee musee) {
-        Utilisateur utilisateur1 = utilisateur
-        utilisateur1.addToMusees(musee)
-        utilisateur1.save(flush: true)
+        utilisateur.addToMusees(musee)
+        utilisateur.save(flush: true)
     }
 
     def removeMuseeFavorite(Utilisateur utilisateur, Musee musee) {
-        Utilisateur utilisateur1 = utilisateur
-        utilisateur1.removeFromMusees(musee)
-        utilisateur1.save(flush: true)
+        utilisateur.removeFromMusees(musee)
+        utilisateur.save(flush: true)
+    }
+
+    def addDemandeVisite(Utilisateur utilisateur, DemandeVisite demandeVisite) {
+        utilisateur.addToDemandeDeVisites(demandeVisite)
+        utilisateur.save(flush: true)
     }
 }
