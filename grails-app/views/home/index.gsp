@@ -69,14 +69,9 @@
                                ${projetjee2015.Utilisateur.get(1).musees.contains(museeInstance)?'disabled':''}/>
                     </g:link>
                     </td>
-
                 </tr>
             </g:each>
         </table>
-
-        <div class="pagination">
-            <g:paginate total="${museeInstanceCount ?: 0}"/>
-        </div>
     </div>
 </div>
 </body>

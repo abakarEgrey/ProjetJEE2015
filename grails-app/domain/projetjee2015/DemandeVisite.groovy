@@ -7,13 +7,9 @@ class DemandeVisite {
     int nbPersonne
     String status
 
-    static hasMany = [
-            musees: Musee
-    ]
+    static hasMany = [musees: Musee]
 
-    static belongsTo = [
-            Musee
-    ]
+    static belongsTo = [Musee]
 
     static constraints = {
         code(blank: false, nullable: false)
