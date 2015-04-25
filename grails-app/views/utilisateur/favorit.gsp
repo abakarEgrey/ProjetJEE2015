@@ -6,7 +6,7 @@
 --%>
 
 <%@ page contentType="text/html;charset=UTF-8" %>
-<div style="float: right;border: 1px solid black;padding: 5px;font-size: 0.7em;width:19%">
+<div style="float: right;border: 1px solid black;padding: 5px;font-size: 0.7em;width:19%;background: #F3F5F7">
     <h2>Mes musées préférés</h2>
     <g:if test="${projetjee2015.Utilisateur.get(1).musees.size() >= 1}">
         <g:link controller="demandeVisite" action="formDemande">
