@@ -10,7 +10,8 @@ class HomeService {
         def musee = Musee.createCriteria()
         def listMusees = musee {
             if (nomMusee) {
-                like("nom", "%${nomMusee}%")
+                System.out.println("nomMusee.Min = " + nomMusee.toLowerCase())
+                like("nom", "%${nomMusee.toUpperCase()}%")
             }
             if (codePostal) {
                 adresse {
@@ -19,7 +20,7 @@ class HomeService {
             }
             if (rueMusee) {
                 adresse {
-                    like("rue", "%${rueMusee}%")
+                    like("rue", "%${rueMusee.toUpperCase()}%")
                 }
             }
         }
