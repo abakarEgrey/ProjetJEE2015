@@ -23,4 +23,8 @@ class Musee {
         return nom;
     }
 
+    static mapping = {
+        gestionnaire fetch: 'join'
+        adresse fetch: 'join'
+    }
 }
