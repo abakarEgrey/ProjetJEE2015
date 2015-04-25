@@ -17,7 +17,7 @@ class DemandeVisiteMuseeSpec extends Specification {
         given:
         "une demande initialise avec un musee, une demande de visite et une date de demande"
         DemandeVisiteMusee demandeVisiteMusee =
-                new DemandeVisiteMusee(musees: unMusee, demandes: uneDemandeVisite, dateDemande: uneDateDemande)
+                new DemandeVisiteMusee(musee: unMusee, demande: uneDemandeVisite, dateDemande: uneDateDemande)
 
         expect: "la demande est valide"
         demandeVisiteMusee.validate() == true
@@ -33,7 +33,7 @@ class DemandeVisiteMuseeSpec extends Specification {
                                                                       Date uneDateDemande) {
 
         DemandeVisiteMusee demandeVisiteMusee =
-                new DemandeVisiteMusee(musees: unMusee, demandes: uneDemandeVisite, dateDemande: uneDateDemande)
+                new DemandeVisiteMusee(musee: unMusee, demande: uneDemandeVisite, dateDemande: uneDateDemande)
 
         expect: "la demande est invalide"
         demandeVisiteMusee.validate() == false

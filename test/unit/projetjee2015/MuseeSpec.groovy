@@ -12,14 +12,16 @@ class MuseeSpec extends Specification {
 
     @Unroll
     void "test la validite d'un musee valide"(String unNom, String desHoraires, String unTelephone,
-                                              String unAccesMetro, String unAccesBus) {
+                                              String unAccesMetro, String unAccesBus,
+                                              Gestionnaire unGestionnaire, Adresse uneAdresse) {
 
         given:
         "un musee initialise avec un nom non vide, des horaires, un telephone, un acces metro, " +
                 "et un acces bus"
         Musee musee =
-                new Musee(nom: unNom, horairesOuverture: desHoraires, telephone: unTelephone, accesMetro: unAccesMetro,
-                        accesBus: unAccesBus)
+                new Musee(nom: unNom, horairesOuverture: desHoraires, telephone: unTelephone,
+                        accesMetro: unAccesMetro, accesBus: unAccesBus, gestionnaire: unGestionnaire,
+                        adresse: uneAdresse)
 
         expect: "le musee est valide"
         musee.validate() == true
@@ -29,8 +31,8 @@ class MuseeSpec extends Specification {
 
 
         where:
-        unNom                    | desHoraires | unTelephone  | unAccesMetro                | unAccesBus
-        "Musee de l'Agriculture" | "8h - 19h"  | "0102030405" | "Metro: A - Arret Chatelet" | "Bus: 78,79,01"
+        unNom                    | desHoraires | unTelephone  | unAccesMetro                | unAccesBus      | unGestionnaire     | uneAdresse
+        "Musee de l'Agriculture" | "8h - 19h"  | "0102030405" | "Metro: A - Arret Chatelet" | "Bus: 78,79,01" | Mock(Gestionnaire) | Mock(projetjee2015.Adresse)
 
     }
 
