@@ -43,10 +43,7 @@ class DemandeVisiteController {
             respond demandeVisiteInstance.errors, view: 'formDemande'
             return
         }
-
         utilisateurService.addDemandeVisite(Utilisateur.get(1), demandeVisiteInstance)
-
-        demandeVisiteInstance.save flush: true
         respond demandeVisiteInstance, view: 'formDemande'
     }
 

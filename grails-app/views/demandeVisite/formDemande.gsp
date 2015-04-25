@@ -14,6 +14,17 @@
 <head>
 </head>
 <body>
+    <div style="float: right;border: 1px solid black;padding: 5px;font-size: 0.7em;width:19%;background: #F3F5F7">
+        <h2>Mes musées préférés</h2>
+        <hr/>
+        <ul style="list-style-type: none">
+            <g:each in="${projetjee2015.Utilisateur.get(1).musees.sort {it.nom}}" status="i" var="museeInstance">
+                <li>
+                    ${fieldValue(bean: museeInstance, field: "nom")}
+                </li>
+            </g:each>
+        </ul>
+    </div>
     <a href="#create-demandeVisite" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
     <div class="nav" role="navigation">
         <ul>
