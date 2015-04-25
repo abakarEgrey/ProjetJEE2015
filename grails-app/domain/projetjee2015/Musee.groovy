@@ -18,4 +18,9 @@ class Musee {
         accesBus(blank: false, nullable: false)
     }
     static hasMany = [demandesVisites: DemandeVisite]
+
+    String toString() {
+        return nom;
+    }
+
 }

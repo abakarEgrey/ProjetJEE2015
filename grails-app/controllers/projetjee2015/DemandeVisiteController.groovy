@@ -22,6 +22,10 @@ class DemandeVisiteController {
         respond new DemandeVisite(params)
     }
 
+    def formDemande() {
+        respond new DemandeVisiteMusee(params)
+    }
+
     @Transactional
     def save(DemandeVisite demandeVisiteInstance) {
         if (demandeVisiteInstance == null) {
