@@ -20,7 +20,19 @@ class UtilisateurService {
     }
 
     def addDemandeVisite(Utilisateur utilisateur, DemandeVisite demandeVisite) {
+        DemandeVisiteMusee demandeVisiteMusee
+        for (Musee m : utilisateur.musees) {
+            m.addToDemandesVisites(demandeVisite)
+            m.save(flush: true)
+            demandeVisite.addToMusees(m)
+            demandeVisiteMusee = new DemandeVisiteMusee(dateDemande: new Date(),
+                    musee: m,
+                    demande: demandeVisite)
+            demandeVisiteMusee.save(flush: true)
+        }
         utilisateur.addToDemandeDeVisites(demandeVisite)
         utilisateur.save(flush: true)
+
+        demandeVisite.save(flush: true)
     }
 }

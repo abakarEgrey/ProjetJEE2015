@@ -2,12 +2,12 @@ package projetjee2015
 
 class DemandeVisiteMusee {
     Date dateDemande;
+    Musee musee
+    DemandeVisite demande
 
     static constraints = {
-        musees(blank: false, nullable: false)
-        demandes(blank: false, nullable: false)
+        musee(blank: false, nullable: false)
+        demande(blank: false, nullable: false)
         dateDemande(blank: false, nullable: false)
     }
-
-    static hasMany = [musees: Musee, demandes: DemandeVisite]
 }
