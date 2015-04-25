@@ -13,12 +13,16 @@ class HomeController {
     }
 
     def doSearchMusee() {
-        def museeList = homeService.searchMusee(params.nom, params.int("codePostal"), params.rue)
+        List<Musee> museeList
+        if(params.int("codePostal") != null) {
+            museeList = homeService.searchMusee(params.nom, params.int("codePostal"), params.rue)
+        }
         render(view: "index", model: [museeInstanceList : museeList,
                                       museeInstanceCount: museeList?.size(),
                                       nomSearch         : params.noms,
                                       codePostalSearch  : params.int("codePostal"),
                                       rueSearch         : params.rue])
+
     }
 
     def addFav() {
