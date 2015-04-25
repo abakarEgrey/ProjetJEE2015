@@ -22,7 +22,6 @@ class HomeController {
     }
 
     def addFav() {
-        System.out.println(Utilisateur.get(1).nom + " " + Musee.get(params.id).nom);
         utilisateurService.addMuseeToFavorite(Utilisateur.get(1),Musee.get(params.id))
         doSearchMusee()
     }

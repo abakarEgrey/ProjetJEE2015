@@ -1,14 +1,11 @@
 <%@ page import="projetjee2015.DemandeVisite" %>
 
 
-
-<div class="fieldcontain ${hasErrors(bean: demandeVisiteInstance, field: 'code', 'error')} required">
-	<label for="code">
-		<g:message code="demandeVisite.code.label" default="Code" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:textField name="code" required="" value="${demandeVisiteInstance?.code}"/>
-
+<div class="fieldcontain ${hasErrors(bean: demandeVisiteInstance, field: 'musees', 'error')} ">
+    <label for="musees">
+        <g:message code="demandeVisite.musees.label" default="Musees" />
+    </label>
+    <g:select name="musee" from="${projetjee2015.Utilisateur.get(1).musees.unique()}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: demandeVisiteInstance, field: 'dateDebutPeriode', 'error')} required">
@@ -29,30 +26,12 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: demandeVisiteInstance, field: 'status', 'error')} required">
-	<label for="status">
-		<g:message code="demandeVisite.status.label" default="Status" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:textField name="status" required="" value="${demandeVisiteInstance?.status}"/>
-
-</div>
-
 <div class="fieldcontain ${hasErrors(bean: demandeVisiteInstance, field: 'nbPersonne', 'error')} required">
 	<label for="nbPersonne">
 		<g:message code="demandeVisite.nbPersonne.label" default="Nb Personne" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:field name="nbPersonne" type="number" min="1" value="${demandeVisiteInstance.nbPersonne}" required=""/>
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: demandeVisiteInstance, field: 'musees', 'error')} ">
-	<label for="musees">
-		<g:message code="demandeVisite.musees.label" default="Musees" />
-		
-	</label>
-	
+    <g:select name="nbPersonne" from="${1..6}"/>
 
 </div>
 

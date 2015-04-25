@@ -17,7 +17,7 @@
 		<g:layoutHead/>
 	</head>
 	<body>
-		<div id="grailsLogo" role="banner"><h1>Projet JEE 2015</h1></div>
+		<div id="grailsLogo" role="banner" style="padding: 10px"><h1 style="font-size: 2em">Toulouse Musées</h1></div>
 		<g:layoutBody/>
 		<div class="footer" role="contentinfo"></div>
 		<div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>

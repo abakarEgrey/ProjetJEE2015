@@ -1,8 +1,9 @@
 package projetjee2015
 
+import grails.transaction.Transactional
+import org.apache.commons.lang.RandomStringUtils
 
 import static org.springframework.http.HttpStatus.*
-import grails.transaction.Transactional
 
 @Transactional(readOnly = true)
 class DemandeVisiteController {
@@ -23,7 +24,33 @@ class DemandeVisiteController {
     }
 
     def formDemande() {
-        respond new DemandeVisiteMusee(params)
+    }
+
+    @Transactional
+    def nouvelDemande(DemandeVisite demandeVisiteInstance) {
+        if (demandeVisiteInstance == null) {
+            notFound()
+            return
+        }
+
+        int randomStringLength = 10
+        String charset = (('a'..'z') + ('A'..'Z') + ('0'..'9')).join()
+        String randomString = RandomStringUtils.random(randomStringLength, charset.toCharArray())
+
+        demandeVisiteInstance.code = randomString
+        demandeVisiteInstance.status = "En cours de traitement"
+        demandeVisiteInstance.validate()
+
+        if (demandeVisiteInstance.hasErrors()) {
+            demandeVisiteInstance.code = null
+            respond demandeVisiteInstance.errors, view: 'formDemande'
+            return
+        }
+
+        Utilisateur.get(1).addToDemandeDeVisites(demandeVisiteInstance)
+        Utilisateur.get(1).save(flush: true)
+        demandeVisiteInstance.save flush: true
+        respond demandeVisiteInstance, view: 'formDemande'
     }
 
     @Transactional
