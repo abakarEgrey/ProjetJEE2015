@@ -14,6 +14,7 @@ class HomeController {
 
     def doSearchMusee() {
         List<Musee> museeList
+        System.out.println(params.codePostal)
         if(params.int("codePostal") != null) {
             museeList = homeService.searchMusee(params.nom, params.int("codePostal"), params.rue)
         }

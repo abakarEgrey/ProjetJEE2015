@@ -34,7 +34,8 @@
                     <label for="codePostal">
                         Code Postal
                     </label>
-                    <g:select name="codePostal" from="${projetjee2015.Adresse.list().codePostal.unique()}"/>
+                    <g:select name="codePostal" from="${projetjee2015.Adresse.list().codePostal.unique()}"
+                        noSelection="[0:'']"/>
                 </div>
 
                 <div class="fieldcontain">
