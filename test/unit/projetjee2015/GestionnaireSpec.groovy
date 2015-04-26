@@ -46,5 +46,16 @@ class GestionnaireSpec extends Specification {
 
     }
 
+    @Unroll
+    void "test toString"() {
+        given:
+        Gestionnaire gestionnaire = new Gestionnaire(nom: "unGestionnaire")
+
+        when:
+        def gestionnaireToString = gestionnaire.toString()
+
+        then:
+        gestionnaireToString == "unGestionnaire"
+    }
 
 }

@@ -13,6 +13,7 @@ class HomeController {
     }
 
     def doSearchMusee() {
+
         List<Musee> museeList
         if(params.int("codePostal") != null) {
             museeList = homeService.searchMusee(params.nom, params.int("codePostal"), params.rue)

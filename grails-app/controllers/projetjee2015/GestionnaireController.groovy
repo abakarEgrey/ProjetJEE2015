@@ -8,7 +8,7 @@ import grails.transaction.Transactional
 @Transactional(readOnly = true)
 class GestionnaireController {
 
-    GestionnaireService gestionnaireService
+   // GestionnaireService gestionnaireService
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 

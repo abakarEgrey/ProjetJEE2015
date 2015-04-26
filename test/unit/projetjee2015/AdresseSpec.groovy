@@ -44,4 +44,16 @@ class AdresseSpec extends Specification {
         118      | "Rue frois verdier" | -31200       | ""
 
     }
+
+    @Unroll
+    void "test toString"() {
+        given:
+        Adresse adresse = new Adresse(numero: "31", rue: "route de Narbonne", codePostal: "31077", ville: "Toulouse")
+
+        when:
+        def adresseToString = adresse.toString()
+
+        then:
+        adresseToString == "31 route de Narbonne 31077 Toulouse"
+    }
 }
