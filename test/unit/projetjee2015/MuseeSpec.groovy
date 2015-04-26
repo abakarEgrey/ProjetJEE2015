@@ -57,4 +57,16 @@ class MuseeSpec extends Specification {
 
     }
 
+    @Unroll
+    void "test toString"() {
+        given:
+        Musee musee = new Musee(nom: "unMusee")
+
+        when:
+        def museeToString = musee.toString()
+
+        then:
+        museeToString == "unMusee"
+    }
+
 }

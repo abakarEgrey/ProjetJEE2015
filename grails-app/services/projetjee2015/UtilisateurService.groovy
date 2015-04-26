@@ -5,10 +5,6 @@ import grails.transaction.Transactional
 @Transactional
 class UtilisateurService {
 
-    def serviceMethod() {
-
-    }
-
     def addMuseeToFavorite(Utilisateur utilisateur, Musee musee) {
         utilisateur.addToMusees(musee)
         utilisateur.save(flush: true)
