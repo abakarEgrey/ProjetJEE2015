@@ -5,7 +5,7 @@
   Time: 19:42
 --%>
 
-<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ page import="projetjee2015.DemandeVisite" contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
     <meta name="layout" content="main">
@@ -53,7 +53,7 @@
                     La date de fin n'est pas valide.
                 </ul>
             </g:hasErrors>
-            <g:form url="[resource:demandeVisiteInstance, action:'nouvelDemande']" >
+            <g:form url="[resource:new projetjee2015.DemandeVisite(), action:'nouvelDemande']" >
                 <fieldset class="form">
                     <g:render template="form"/>
                 </fieldset>
